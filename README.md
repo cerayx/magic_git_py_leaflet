@@ -36,3 +36,11 @@ Select __Checkout Windows-style, commit Unix-style line endings__. Finish the
 installation and you'll be set. 
 ![Git line endins](./images/git_checkout.png)
 
+##Configure Git
+Git attaches your name and e-mail address to all of the revisions you make. These
+can be configured by running the following lines on the command line/terminal:
+```bash
+git config --global user.name "First Last"
+git config --global user.email "name@domain.com"
+```
+Run each line separately, substituting your name and email address.
