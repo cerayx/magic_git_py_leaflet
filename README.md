@@ -19,7 +19,7 @@ installed.
 
 ##Installing Git
 Though there are Git GUIs available, we're going to use the command line since 
-is the same on all platforms. Visit [http://git-scm.com//download](http://git-scm.com//download) 
+it is the same on all platforms. Visit [http://git-scm.com//download](http://git-scm.com//download) 
 and download Git for your platform. If you're using Mac OS X or Linux, you're done.
 
 ###Installing Git on Windows
