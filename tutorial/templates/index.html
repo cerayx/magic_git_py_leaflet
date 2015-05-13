@@ -26,6 +26,12 @@
 
             var placesGroup = L.layerGroup().addTo(map);
 
+            // Create a style for marking the pubs' locations on the map
+            var beerIcon = L.icon({
+                    iconUrl: "{{ url_for('static', filename='img/beer.png') }}",
+                    iconSize: [25, 30]
+            });
+
             // Create a function that passes a REST request to our flask 
             // within() route
             function getPlaces(latlng) {
@@ -41,10 +47,27 @@
             }
 
             // Parse the json returned by Yelp to extract the information we
-            // want to display. Right now we're just going to log it to the
-            // console so we can check out its structure
+            // want to display. 
             function parsePlaces(data) {
                 console.log(data);
+                var businesses = data.businesses;
+                // Clear the placesGroup so that we only show the pubs in our
+                // new search area
+                placesGroup.clearLayers();
+                
+                // Change the color of our search circle depending on if any
+                // pubs were returned
+                if (businesses.length > 0)
+                    searchCircle.setStyle({color: "#D4D419"});
+                else 
+                    searchCircle.setStyle({color: "red"});
+                
+                // Loop over the businesses and add each to the placesGroup
+                for (var i = 0; i < businesses.length; ++i) {
+                    var coords = [businesses[i].location.coordinate.latitude,
+                                  businesses[i].location.coordinate.longitude];
+                    placesGroup.addLayer(L.marker(coords, {icon: beerIcon}));
+                }
             }
 
             // Attach the map click event handler to our getPlaces function
