@@ -74,4 +74,6 @@ background-image: url(./images/bus.png)
 humanity's favorite beverage
 ]
 ---
-background-image: url(http://egoddard.github.io/geospatial_colloquium/images/beer_prediction.jpg)
+
+.center[##[https://github.com/egoddard/magic_git_py_leaflet](https://github.com/egoddard/magic_git_py_leaflet)
+![beer](http://egoddard.github.io/geospatial_colloquium/images/beer_prediction.jpg)]
