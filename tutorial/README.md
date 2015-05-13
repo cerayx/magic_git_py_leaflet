@@ -88,3 +88,17 @@ to use it again, run the activation command above for your platform.
 
 To close the virtual environment without closing the terminal, use the 
 `deactivate` command (all platforms).
+
+#Using Git
+There are a few Git commands that are used frequently, which are listed below. 
+You've already used one (`git clone`). Some others include: 
+- `git pull` - fetches new updates from the server and applies the changes to 
+your local copy
+- `git status` - Provides a summary of files that have been modified but that 
+have not been committed
+- `git log` - Shows a history of commits or changes
+- `git diff` - Shows changes line by line between two commits
+- `git tag` - Shows and allows you to checkout specfic commits by name (think of these as 
+releases, such as v1.0, v2.0, etc.)
+
+We'll go over these before diving into the Python and leaflet app.
