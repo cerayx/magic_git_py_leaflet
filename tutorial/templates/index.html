@@ -51,6 +51,8 @@
             function parsePlaces(data) {
                 console.log(data);
                 var businesses = data.businesses;
+                var yelpLogoUrl = "http://s3-media1.fl.yelpcdn.com/assets/2/www/img/14f29ad24935/map/miniMapLogo.png"; 
+
                 // Clear the placesGroup so that we only show the pubs in our
                 // new search area
                 placesGroup.clearLayers();
@@ -66,7 +68,15 @@
                 for (var i = 0; i < businesses.length; ++i) {
                     var coords = [businesses[i].location.coordinate.latitude,
                                   businesses[i].location.coordinate.longitude];
-                    placesGroup.addLayer(L.marker(coords, {icon: beerIcon}));
+
+                    var popupContent = "<h3>" + businesses[i].name + 
+                        "<img src=\"" + yelpLogoUrl + "\"></h3>" +
+                        "<img src=\"" + businesses[i].rating_img_url_small + "\">" +
+                        "<p>" + businesses[i].snippet_text + "</p>";
+                    placesGroup.addLayer(L.marker(coords, {
+                            icon: beerIcon,
+                            title: businesses[i].name
+                    }).bindPopup(popupContent));
                 }
             }
 
